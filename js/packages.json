@@ -1,0 +1,40 @@
+[
+	
+	{
+		"title" : "UniFi Controller",
+		"desc" : "Network controller for Ubiquiti access points, telephones and security devices.",
+		"img" : "ubntlogo.png",
+		"uuid" : "ubntunifi",
+		"bash" : "apt-get update;apt-get install unifi;sleep 5;touch /home/cfikes/Desktop/servermanager/scripts/ubntunifi;",
+		"icmd" : "installunifi",
+		"pcmd" : "purgeunifi",
+		"launch" : "xdg-open https://localhost:8443"
+	},
+	{
+		"title" : "UniFi Video Controller",
+		"desc" : "Network Video Recorder for UniFi Video Security Cameras.",
+		"img" : "ubntlogo.png",
+		"uuid" : "ubntuvc",
+		"icmd" : "installuvc",
+		"pcmd" : "purgeuvc",
+		"launch" : "xdg-open https://localhost:7443"
+	},
+	{
+		"title" : "FikesMedia Backups",
+		"desc" : "Automated Backups for supported server roles.",
+		"img" : "fikesmedialogo.png",
+		"uuid" : "fmbackups",
+		"icmd" : "installfmb",
+		"pcmd" : "purgefmb"
+	},
+	{
+		"title" : "Webmin",
+		"desc" : "Web based server manager for remote easy management.",
+		"img" : "webminlogo.png",
+		"uuid" : "webmin",
+		"icmd" : "installwebmin",
+		"pcmd" : "purgewebmin",
+		"launch" : "firefox https://localhost:10000"
+	}
+
+]

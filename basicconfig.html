@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Server Manager</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">FikesMedia Server Manager</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!--<li class="active"><a href="#">Server Roles</a></li>-->
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container windowpadding">
+		<div class="row">
+			<div class="col-md-3">
+				<ul id="mainmenu" class="nav nav-pills nav-stacked nav-pills-stacked-example" data-spy="affix" data-offset-top="150">
+					<li class="divider"><i>Configure</i></li>
+					<li role="presentation"><a href="index.html">Server Roles</a></li>
+					<li role="presentation" class="active"><a href="#" >Basic Configuration</a></li>
+					<li role="presentation"><a class="applauncher" data-value="xdg-open http://support.fikesmedia.com">Online Support</a></li>
+				</ul>
+			</div>
+			<div class="col-md-9">
+			<div class="row">
+				<h4>System Time <a id="currentsystemtime" class="applauncher" data-value="time-admin"></a></h4>
+				<hr>
+				
+			</div>
+			<div class="row">
+				<h4><em>Basic Network Information</em></h4>
+				<p><strong>Hostname: <a id="currenthostname" class="applauncher" data-value="network-admin">Could not resolve.</a></strong></p>
+				<hr>
+				<p><strong>Ethernet Configuration:</strong></p>
+				<table class="table borderless">
+					<th>Interface</th><th>Address</th><th>&nbsp;</th>
+					<tr><td id="ifacename"></td><td><a id="ifaceaddress" class="applauncher" data-value="nm-connection-editor"></a></td><td></td></tr>						
+				</table>
+				<hr>
+			</div>
+			<div class="row">
+				<h4><em>Users and Groups</em></h4>
+				<a class="applauncher" data-value="users-admin">Manage Users</a>
+				<hr>
+			</div>
+			<div class="row">
+			<br><br><br><br><br><br><br><br><br><br>
+			</div>
+		</div>
+		
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/basicconfig.js"></script>
+
+
+  </body>
+</html>

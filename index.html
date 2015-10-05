@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Server Manager</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Server Manager</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Roles <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="mainmenu">
+                <li><a href="index.html" class="active">Add Remove Roles</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">My Roles</li>
+              </ul>
+            </li>
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Settings <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="settingsmenu">
+				<li><a href="#" class="applauncher" data-value="exo-preferred-applications">Default Applications</a></li>
+				<li><a href="#" class="applauncher" data-value="xfdesktop-settings">Desktop Settings</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-display-settings">Display Settings</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-mime-settings">File Associations</a></li>
+				<li><a href="#" class="applauncher" data-value="nm-connection-editor">Network Connections</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-power-manager-settings">Power Management</a></li>
+				<li><a href="#" class="applauncher" data-value="system-config-printer">Print Server</a></li>
+				<li><a href="#" class="applauncher" data-value="software-properties-gtk --open-tab 4">Proprietary Driver Management</a></li>
+				<li><a href="#" class="applauncher" data-value="gksudo bum">Service Management</a></li>
+				<li><a href="#" class="applauncher" data-value="software-properties-gtk --open-tab 2">Software Update Manager</a></li>
+				<li><a href="#" class="applauncher" data-value="network-admin">System Hostname</a></li>
+				<li><a href="#" class="applauncher" data-value="xfwm4-settings">Window Manager</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container windowpadding">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row" id="availableroles">
+				
+				</div>
+			</div>
+		</div>
+    </div><!-- /.container -->
+	
+	<div class="modal fade bs-example-modal-sm" id="loadingmodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<center>
+				<h2>Applying Actions</h2>
+				<img src="img/loader.gif">
+				</center>
+				<br>
+			</div>
+		</div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/index.js"></script>
+
+
+  </body>
+</html>
