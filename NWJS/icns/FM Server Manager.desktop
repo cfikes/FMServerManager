@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=FM Server Manager
+Comment=FikesMedia Server Manager
+Exec=/usr/share/fmservermanager/fmservermanager
+Icon=/usr/share/fmservermanager/icon.png
+Path=/usr/share/fmservermanager
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Install Ubiquiti Unifi Controller
+
+apt-get update
+apt-get -y install unifi
+sleep 5
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+touch $DIR/../db/ubntunifi
+

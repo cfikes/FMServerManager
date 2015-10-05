@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=exo-open --launch TerminalEmulator
+Icon=utilities-terminal
+StartupNotify=true
+Terminal=false
+Categories=Utility;X-XFCE;X-Xfce-Toplevel;
+OnlyShowIn=XFCE;
+Name=Terminal Emulator
+Name[it]=Emulatore di terminale
+Name[nn]=Terminalprogram
+Comment=Use the command line
+Comment[et]=Kasuta käsurida

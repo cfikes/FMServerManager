@@ -1,0 +1,4 @@
+# Ubiquiti Repos
+deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+deb [arch=amd64] http://www.ubnt.com/downloads/unifi-video/apt trusty ubiquiti
