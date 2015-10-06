@@ -125,7 +125,10 @@ var cpus = os.cpus();
 	}
 	function populateinfotable(){
 		console.log(os.networkInterfaces());
+		//For Each In OS.NetworkInterfaces Loop and Grab IP
+		//Each Int
 		$.each(os.networkInterfaces(), function(key,interfaces) {
+			//Each In INT
 			$.each(interfaces, function(key,intobj) {
 				console.log(intobj.address);
 				$("#ipaddress").append('<div style="margin:1px">' + intobj.address + '</div>');

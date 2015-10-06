@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,12 +13,11 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-
-
   </head>
 
   <body>
 
+<!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -29,12 +27,39 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">FikesMedia Server Role Manager</a>
+          <a class="navbar-brand" href="#">Server Manager</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="#">Server Roles</a></li>-->
-            
+            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Roles <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="mainmenu">
+                <li><a href="index.html">Add Remove Roles</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">My Roles</li>
+              </ul>
+            </li>
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Settings <span class="caret"></span></a>
+              <ul class="dropdown-menu" id="settingsmenu">
+				<li><a href="#" class="applauncher" data-value="exo-preferred-applications">Default Applications</a></li>
+				<li><a href="#" class="applauncher" data-value="xfdesktop-settings">Desktop Settings</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-display-settings">Display Settings</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-mime-settings">File Associations</a></li>
+				<li><a href="#" class="applauncher" data-value="nm-connection-editor">Network Connections</a></li>
+				<li><a href="#" class="applauncher" data-value="xfce4-power-manager-settings">Power Management</a></li>
+				<li><a href="#" class="applauncher" data-value="system-config-printer">Print Server</a></li>
+				<li><a href="#" class="applauncher" data-value="software-properties-gtk --open-tab 4">Proprietary Driver Management</a></li>
+				<li><a href="#" class="applauncher" data-value="gksudo bum">Service Management</a></li>
+				<li><a href="#" class="applauncher" data-value="software-properties-gtk --open-tab 2">Software Update Manager</a></li>
+				<li><a href="#" class="applauncher" data-value="network-admin">System Hostname</a></li>
+				<li><a href="#" class="applauncher" data-value="xfwm4-settings">Window Manager</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Documentation</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -42,110 +67,42 @@
 
     <div class="container windowpadding">
 		<div class="row">
-			<div class="col-md-3">
-				<ul class="nav nav-pills nav-stacked nav-pills-stacked-example" data-spy="affix" data-offset-top="150">
-					<li role="presentation"><a href="index.html">Server Roles</a></li>
-					<li role="presentation"  class="active"><a class="networkconfigbtn" href="#" data-value="nm-connection-editor">Network Configuration</a></li>
-					<li role="presentation"><a href="#">Online Support</a></li>
-				</ul>
+			<!-- Usage Guages -->
+			<div class="col-md-6">
+				<div id="cpugauge" class="gauge" style="height:400px;"></div>
 			</div>
-			<div class="col-md-9">
-			<div class="row">
-				<h4>View and configure basic network settings</h4>
-				<hr>
-				<div class="row">
-					<form class="form-horizontal">
-					<div class="form-group">
-						<label for="interface" class="col-sm-2 control-label">Eth0</label>
-					</div>
-					  <div class="form-group">
-						<label for="ipaddress" class="col-sm-2 control-label">IP Address</label>
-						<div class="col-sm-10">
-						  <input type="text" class="form-control" id="ipaddress" placeholder="127.0.0.1">
-						</div>
-					  </div>
-					  <div class="form-group">
-						<label for="netmask" class="col-sm-2 control-label">Netmask</label>
-						<div class="col-sm-10">
-						  <input type="text" class="form-control" id="netmask" placeholder="255.255.255.0">
-						</div>
-					  </div>
-					  <div class="form-group">
-						<label for="gateway" class="col-sm-2 control-label">Gateway</label>
-						<div class="col-sm-10">
-						  <input type="text" class="form-control" id="gateway" placeholder="127.0.0.254">
-						</div>
-					  </div>
-					  <div class="form-group">
-						<label for="dns1" class="col-sm-2 control-label">Primary DNS</label>
-						<div class="col-sm-10">
-						  <input type="text" class="form-control" id="dns1" placeholder="127.0.0.2">
-						</div>
-					  </div>
-					  <div class="form-group">
-						<label for="dns2" class="col-sm-2 control-label">Secondary DNS</label>
-						<div class="col-sm-10">
-						  <input type="text" class="form-control" id="dns2" placeholder="127.0.0.2">
-						</div>
-					  </div>
-					  <div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-						  <button id="saveandrestartnetworking" class="btn btn-default btn-primary">Save and Restart Network Services</button>
-						</div>
-					  </div>
-					</form>
-				</div>
+			<div class="col-md-6">
+				<div id="memgauge" class="gauge" style="height:400px;"></div>
 			</div>
 		</div>
-		
-
+		<!-- System Information -->
+		<div class="row">
+			<table class="table table-condensed">
+				<tr><td>System Hostname</td><td id="systemhostname"></td></tr>
+				<tr><td>System Uptime</td><td id="systemuptime"></td></tr>
+				<tr><td>IP Address</td><td id="ipaddress"></td></tr>
+			</table>
+		</div>
     </div><!-- /.container -->
-
+	
+	<div class="modal fade bs-example-modal-sm" id="loadingmodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<center>
+				<h2>Applying Actions</h2>
+				<img src="img/loader.gif">
+				</center>
+				<br>
+			</div>
+		</div>
+	</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script>
-		window.gui = require('nw.gui');
-		var spawn = require('child_process').spawn;
-		var exec = require('child_process').exec;
-		var fs = require('fs');
-		var path = require('path');
-		var os = require('os');
-		var ifaces = os.networkInterfaces();
-		
-		$(function() {
-			$('#currenthostname').html(os.hostname());
-			
-			$('.applauncher').click(function(){
-				var app = $(this).attr('data-value');
-				exec(app);
-			});
-						
-			
-			Object.keys(ifaces).forEach(function (ifname) {
-			var alias = 0;
-
-			ifaces[ifname].forEach(function (iface) {
-			if ('IPv4' !== iface.family || iface.internal !== false) {
-			  // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-			  return;
-			}
-
-			if (alias >= 1) {
-				  // this single interface has multiple ipv4 addresses
-				  console.log(ifname + ':' + alias, iface.address);
-				} else {
-				  // this interface has only one ipv4 adress
-				  $('#ifacename').html(ifname);
-				  $('#ifaceaddress').html(iface.address);
-				}
-				});
-			});
-		});
-	</script>
+	<script src="js/network.js"></script>
 
 
   </body>
