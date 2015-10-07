@@ -12,7 +12,7 @@ var ifaces = os.networkInterfaces();
 	//Launcher for AJAX Loaded Items
 	function runcommand(cmd){
 		$('#loadingmodal').modal('show');
-		var app = "gksudo 'xfce4-terminal -e /usr/share/fmservermanager/scripts/" + cmd + "'";
+		var app = "gksudo '/usr/share/fmservermanager/scripts/" + cmd + "'";
 		//app = '"' + app + '"';
 		console.log(app);
 		exec(app);
