@@ -20,7 +20,7 @@ var ifaces = os.networkInterfaces();
 	
 	function createroles() {
 		//Assign JSON File
-		var file = fs.readFileSync('js/packages.json', "utf8");
+		var file = fs.readFileSync('/usr/share/fmservermanager/db/packages.json', "utf8");
 		var obj = jQuery.parseJSON(file);
 		//Clear out static
 		$('#availableroles').html("");
