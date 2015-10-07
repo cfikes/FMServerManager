@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Install Ubiquiti mFi Controller
+
+apt-get update
+apt-get -y install mfi
+sleep 5
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+touch $DIR/../db/ubntmfi
+

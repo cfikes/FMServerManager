@@ -2,7 +2,7 @@
   "name": "Server Role Manager",
   "main": "dashboard.html",
   "window": {
-    "resizable": false,
+    "resizable": true,
     "toolbar": false,
     "width": 1050,
     "height": 700,

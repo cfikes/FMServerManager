@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Remove mFi Controller
+
+apt-get -y purge mfi
+apt-get -y autoremove
+sleep 5
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+rm -f $DIR/../db/ubntmfi
+

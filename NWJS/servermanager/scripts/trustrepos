@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Trust Repos
+
+
+#UniFi
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50
+#MongoDB
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+#UniFi Video
+wget -O - http://www.ubnt.com/downloads/unifi-video/apt/unifi-video.gpg.key | sudo apt-key add -
+#mFi
+apt-key adv --keyserver keyserver.ubuntu.com --recv C0A52C50

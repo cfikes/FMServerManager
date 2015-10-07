@@ -12,7 +12,7 @@ var cpus = os.cpus();
 	//Launcher for AJAX Loaded Items
 	function runcommand(cmd){
 		$('#loadingmodal').modal('show');
-		var app = "gksudo 'xfce4-terminal -e /home/cfikes/Desktop/servermanager/scripts/" + cmd + "'";
+		var app = "gksudo 'xfce4-terminal -e /usr/share/fmservermanager/scripts/" + cmd + "'";
 		//app = '"' + app + '"';
 		console.log(app);
 		exec(app);
@@ -56,7 +56,7 @@ var cpus = os.cpus();
 			//Console log what role is being updated
 			console.log(value.title);
 			//Set lock directory and file
-			var lockdir = "/home/cfikes/Desktop/servermanager/db/";
+			var lockdir = "/usr/share/fmservermanager/db/";
 			var lockfile = lockdir + value.uuid;
 			//Set simplier variables
 			var title = value.title;

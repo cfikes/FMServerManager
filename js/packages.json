@@ -20,12 +20,13 @@
 		"launch" : "xdg-open https://localhost:7443"
 	},
 	{
-		"title" : "FikesMedia Backups",
-		"desc" : "Automated Backups for supported server roles.",
-		"img" : "fikesmedialogo.png",
-		"uuid" : "fmbackups",
-		"icmd" : "installfmb",
-		"pcmd" : "purgefmb"
+		"title" : "mFi Controller",
+		"desc" : "Machine to machine communication controller for Ubiquiti mFi Products..",
+		"img" : "ubntlogo.png",
+		"uuid" : "ubntmfi",
+		"icmd" : "installmfi",
+		"pcmd" : "purgemfi",
+		"launch" : "xdg-open https://localhost:6443"
 	},
 	{
 		"title" : "Webmin",

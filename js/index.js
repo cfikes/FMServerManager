@@ -12,7 +12,7 @@ var ifaces = os.networkInterfaces();
 	//Launcher for AJAX Loaded Items
 	function runcommand(cmd){
 		$('#loadingmodal').modal('show');
-		var app = "gksudo 'xfce4-terminal -e /home/cfikes/Desktop/servermanager/scripts/" + cmd + "'";
+		var app = "gksudo 'xfce4-terminal -e /usr/share/fmservermanager/scripts/" + cmd + "'";
 		//app = '"' + app + '"';
 		console.log(app);
 		exec(app);
@@ -56,7 +56,7 @@ var ifaces = os.networkInterfaces();
 			//Console log what role is being updated
 			console.log(value.title);
 			//Set lock directory and file
-			var lockdir = "/home/cfikes/Desktop/servermanager/db/";
+			var lockdir = "/usr/share/fmservermanager/db/";
 			var lockfile = lockdir + value.uuid;
 			//Set simplier variables
 			var title = value.title;
@@ -126,7 +126,7 @@ var ifaces = os.networkInterfaces();
 	
 	function updateunifirole(){
 		//Check for lock file
-		fs.readFile('/home/cfikes/Desktop/servermanager/db/unifi', function (err, data) {
+		fs.readFile('/usr/share/fmservermanager/db/unifi', function (err, data) {
 		  //If no lock exist
 		  if (err)
 			//If install button disabled

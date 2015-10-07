@@ -10,7 +10,7 @@ $(function() {
 	
 	function updateroles(){
 		//Begin Check UniFi
-		fs.readFile('/home/cfikes/Desktop/servermanager/db/unifi', function (err, data) {
+		fs.readFile('/usr/share/fmservermanager/db/unifi', function (err, data) {
 		  if (err) 
 			if($('#installunifibtn').attr('disabled')){
 				$('#installunifibtn').removeAttr('disabled', 'disabled');

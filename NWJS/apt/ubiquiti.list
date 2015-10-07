@@ -1,4 +1,14 @@
 # Ubiquiti Repos
+
+#Unifi
 deb http://www.ubnt.com/downloads/unifi/debian stable ubiquiti
+
+#MongoDB
 deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+
+#Unifi Video
 deb [arch=amd64] http://www.ubnt.com/downloads/unifi-video/apt trusty ubiquiti
+
+#mFi
+deb http://www.ubnt.com/downloads/mfi/distros/deb/ubuntu ubuntu ubiquiti
+
