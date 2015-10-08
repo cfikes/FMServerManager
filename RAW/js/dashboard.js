@@ -20,7 +20,7 @@ var cpus = os.cpus();
 	
 	function createroles() {
 		//Assign JSON File
-		var file = fs.readFileSync('js/packages.json', "utf8");
+		var file = fs.readFileSync('/usr/share/fmservermanager/db/packages.json', "utf8");
 		var obj = jQuery.parseJSON(file);
 		//Clear out static
 		$('#availableroles').html("");
@@ -49,7 +49,7 @@ var cpus = os.cpus();
 	
 	function updateroles() {
 		//Assign JSON File
-		var file = fs.readFileSync('js/packages.json', "utf8");
+		var file = fs.readFileSync('/usr/share/fmservermanager/db/packages.json', "utf8");
 		var obj = jQuery.parseJSON(file);
 		//For each object in json
 		$.each(obj, function(key,value) {
@@ -68,6 +68,16 @@ var cpus = os.cpus();
 			var parentmenu = "#mainmenu";
 			var loadingmodal = "#loadingmodal";
 			var menuitem = '<li role="presentation" id="' + menulisting + '"><a class="applauncher" onclick=\'exec("' + value.launch + '");\'>' + title + '</a></li>';
+			
+			//Extras
+			var extraparent = "#extramenu";
+			var extralisting = "extra" + value.uuid;
+			var extratitle = value.extra;
+			console.log(extratitle);
+			var extramenu = '<li role="presentation" id="' + extralisting + '"><a href="' + value.uuid +'.html">' + extratitle + '</a></li>';
+			//End Extras
+			
+			
 			//Check for lock file
 			fs.readFile(lockfile, function (err, data) {
 				//If no lock exist
@@ -104,6 +114,8 @@ var cpus = os.cpus();
 						$(installbtn).attr('disabled', 'disabled');
 						//Add Menu Item
 						$(parentmenu).append(menuitem);
+						//Add Extra
+						if (value.extra) { $(extraparent).append(extramenu); }
 						//Close Loading Modal
 						$(loadingmodal).modal('hide');
 					} 
@@ -112,6 +124,8 @@ var cpus = os.cpus();
 						// If menu item exist
 						if ($(menulisting).length) {
 							$(parentmenu).append(menuitem);
+							//Add Extra
+							if (value.extra) { $(extraparent).append(extramenu); }
 						} 
 						//If menu item does not exist
 						else {
@@ -123,6 +137,7 @@ var cpus = os.cpus();
 			});
 		});
 	}
+	
 	function populateinfotable(){
 		console.log(os.networkInterfaces());
 		//For Each In OS.NetworkInterfaces Loop and Grab IP

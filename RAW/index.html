@@ -32,10 +32,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="dashboard.html">Dashboard</a></li>
-            <li class="dropdown active">
+            <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Roles <span class="caret"></span></a>
               <ul class="dropdown-menu" id="mainmenu">
-                <li><a href="index.html" class="active">Add Remove Roles</a></li>
+                <li><a href="index.html">Add Remove Roles</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">My Roles</li>
               </ul>
@@ -59,7 +59,13 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Documentation</a></li>
+            <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">UniFikes <span class="caret"></span></a>
+				<ul class="dropdown-menu" id="extramenu">
+					<li><a href="#">Documentation</a></li>
+					<li class="dropdown-header"> </li>
+				</ul>
+			</li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -81,8 +87,9 @@
 				<center>
 				<h2>Applying Actions</h2>
 				<img src="img/loader.gif">
-				</center>
+				<h4 id="loadingmessage">&nbsp;</h4>
 				<br>
+				</center>
 			</div>
 		</div>
 	</div>

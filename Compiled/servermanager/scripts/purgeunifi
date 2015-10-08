@@ -1,10 +1,39 @@
 #!/bin/bash
 
-# Remove UniFi Controller
+# FikesMedia 
+# Support Team <support@fikesmedia.com>
+#
+# UniFi Removal Script
+# Description:	Removes UniFi and 
+# automated backups at midnight.
+#
+# Copyright 2015 All Rights Reserved
 
-apt-get -y purge unifi
-apt-get -y autoremove
-sleep 5
+
+# Specify Running Directory
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-rm -f $DIR/../db/ubntunifi
 
+# Set Message
+echo "Removing UniFi" > $DIR/../db/loadingmessage
+# Remove Package
+apt-get -y purge unifi
+
+# Set Message
+echo "Cleaning System" > $DIR/../db/loadingmessage
+# Autoremove Cleanup
+apt-get -y autoremove
+
+# Set Message
+echo "Removing Backup Jobs" > $DIR/../db/loadingmessage
+sleep 2
+# Remove Backup Jobs
+rm -f /etc/cron.d/unifibackups
+
+# Set Message
+echo "Updating Server Manager" > $DIR/../db/loadingmessage
+# Pause to stabalize
+sleep 2
+# Remove Entry to Server Manager DB
+rm -f $DIR/../db/ubntunifi
+# Remove Messages
+rm -f $DIR/../db/loadingmessage

@@ -1,10 +1,45 @@
 #!/bin/bash
 
-# Install Ubiquiti Unifi Controller
+# FikesMedia 
+# Support Team <support@fikesmedia.com>
+#
+# UniFi Installation Script
+# Description:	Installs UniFi from the
+#     official Ubiquiti repositiories
+#     and setups automated backups to  
+#     run at midnight.
+#
+# Copyright 2015 All Rights Reserved
 
-apt-get update
-apt-get -y install unifi
-sleep 5
+
+# Specify Running Directory
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+# Set Message
+echo "Updating APT Database" > $DIR/../db/loadingmessage
+# Refresh APT
+apt-get update
+
+# Set Message
+echo "Downloading and Installing" > $DIR/../db/loadingmessage
+# Install UniFi
+apt-get -y install unifi
+
+# Set Message
+echo "Creating Automatic Backups" > $DIR/../db/loadingmessage
+sleep 2
+# Setup Automated Backups
+echo "#FikesMedia Automated UniFi Backups"  > /etc/cron.d/unifibackups
+echo "00 00 * * * root /usr/share/fmservermanager/scripts/unifibackup" >> /etc/cron.d/unifibackups
+
+# Set Message
+echo "Updating Server Manager" > $DIR/../db/loadingmessage
+# Pause to stabalize
+sleep 2
+# Add Entry to Server Manager DB
 touch $DIR/../db/ubntunifi
+# Remove Messages
+rm -f $DIR/../db/loadingmessage
+
+
 

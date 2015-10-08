@@ -3,7 +3,7 @@
   "main": "dashboard.html",
   "window": {
     "resizable": true,
-    "toolbar": false,
+    "toolbar": true,
     "width": 1050,
     "height": 700,
 	"icon": "icon.png"

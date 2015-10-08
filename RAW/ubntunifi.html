@@ -31,7 +31,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Server Roles <span class="caret"></span></a>
               <ul class="dropdown-menu" id="mainmenu">
@@ -73,21 +73,27 @@
 
     <div class="container windowpadding">
 		<div class="row">
-			<!-- Usage Guages -->
-			<div class="col-md-6">
-				<div id="cpugauge" class="gauge" style="height:400px;"></div>
+			<div class="col-md-12">
+				<h3>Automated UniFi Backups</h3>
+				<form>
+					<div class="form-group">
+						<label for="unifiuser">UniFi Admin</label>
+						<input type="email" class="form-control" id="unifiuser" placeholder="UniFi Admin">
+					</div>
+					<div class="form-group">
+						<label for="unifipass">Password</label>
+						<input type="password" class="form-control" id="unifipass" placeholder="Password">
+					</div>
+				  <button class="btn btn-primary" id="saveunifibackup">Save Settings</button>
+				</form>
+				</br>
+				<h4>Previous Backups</h4>
+				<ul class="list-unstyled" id="unifibackups">
+				</ul>
+				<br>
+				<button class="btn btn-primary applauncher" data-value="thunar /usr/share/fmservermanager/backups/unifi">Open Backups Folder</button>
+				<br>
 			</div>
-			<div class="col-md-6">
-				<div id="memgauge" class="gauge" style="height:400px;"></div>
-			</div>
-		</div>
-		<!-- System Information -->
-		<div class="row">
-			<table class="table table-condensed">
-				<tr><td>System Hostname</td><td id="systemhostname"></td></tr>
-				<tr><td>System Uptime</td><td id="systemuptime"></td></tr>
-				<tr><td>IP Address</td><td id="ipaddress"></td></tr>
-			</table>
 		</div>
     </div><!-- /.container -->
 	
@@ -97,8 +103,9 @@
 				<center>
 				<h2>Applying Actions</h2>
 				<img src="img/loader.gif">
-				</center>
+				<h4 id="loadingmessage">&nbsp;</h4>
 				<br>
+				</center>
 			</div>
 		</div>
 	</div>
@@ -108,9 +115,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/raphael-2.1.4.min.js"></script>
-    <script src="js/justgage-1.1.0.min.js"></script>
-	<script src="js/dashboard.js"></script>
+	<script src="js/ubntunifi.js"></script>
 
 
   </body>

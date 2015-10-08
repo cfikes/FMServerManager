@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# FikesMedia 
+# Support Team <support@fikesmedia.com>
+#
+# Update UniFi Backups User Information
+# Description:	Updates Username and 
+#     password used in automated 
+#     backups run at midnight.
+#
+# Copyright 2015 All Rights Reserved
+
+
+# Specify Running Directory
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+
+echo $1 > $DIR/../db/unifiuser
+echo $2 > $DIR/../db/unifipass
+
+

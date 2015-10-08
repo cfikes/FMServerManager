@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# FikesMedia 
+# Support Team <support@fikesmedia.com>
+#
+# UniFi Back Script
+# Description:	Automated Backup Script
+#     Uses API to pull UniFi Backups
+#     Keeps 10 Days.  
+#
+# Copyright 2015 All Rights Reserved
+
+unifiusername=$(cat "/usr/share/fmservermanager/db/fmunifiuser")
+unifipassword=$(cat "/usr/share/fmservermanager/db/fmunifipass")
+
+baseurl=https://localhost:8443
+output=/usr/share/fmservermanager/backups/unifi
+filename=`date +%Y%m%d%H%M`.unf
+keep_days=10
+
+curl_cmd="curl --cookie /tmp/cookie --cookie-jar /tmp/cookie --insecure --silent --fail"
+
+# authenticate against unifi controller 
+if ! $curl_cmd --data '{"username":"'$unifiusername'","password":"'$unifipassword'"}' $baseurl/api/login > /dev/null; then
+  echo Login failed
+  exit 1
+fi
+
+# ask controller to do a backup, response contains the path to the backup file 
+path=`$curl_cmd --data 'json={"cmd":"backup","days":"-1"}' $baseurl/api/s/default/cmd/system | sed -n 's/.*\(\/dl.*unf\).*/\1/p'`
+
+# download the backup to the destinated output file 
+$curl_cmd $baseurl$path -o $output/$filename
+
+# logout 
+$curl_cmd $baseurl/logout
+
+# delete outdated backups
+find $output -ctime +$keep_days -type f -delete

@@ -5,8 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var os = require('os');
 var ifaces = os.networkInterfaces();
-
-
+ 
 //$(function() {
 	
 	//Launcher for AJAX Loaded Items
@@ -138,15 +137,39 @@ var ifaces = os.networkInterfaces();
 		});
 	}
 	
-	function updateloadingstatus() {
-		if($(loadingmodal).hasClass('in')) {
-			fs.readFile("/usr/share/fmservermanager/db/loadingmessage", "UTF8", function(err, data) {
-				if (err) { throw err };
-				loadingmessage = data;
-				$('#loadingmessage').html(loadingmessage);
-			});
-		}
+	function populatefields(){
+		fs.readFile("/usr/share/fmservermanager/db/unifiuser", "UTF8", function(err, data) {
+			if (err) { throw err };
+			document.getElementById('unifiuser').value = data;
+		});
 	}
+	
+	function populatebackups(){
+		var backupdir = "/usr/share/fmservermanager/backups/unifi";
+		fs.readdir(backupdir, function(err, files) {
+			if (err) return;
+			files.forEach(function(filename) {
+				$('#unifibackups').append('<li>' + filename + '</li>');
+			});
+		});
+
+	}
+	
+	$('#saveunifibackup').click(function(){
+		var unifiuser = document.getElementById('unifiuser').value;
+		var unifipass = document.getElementById('unifipass').value;
+		$(loadingmodal).modal('show');
+		var cmd = "gksudo '/usr/share/fmservermanager/scripts/updateunifibackups " + unifiuser + " " + unifipass + "'";
+		//fs.writeFile("/usr/share/fmservermanager/db/unifiuser", unifiuser, function(err) {
+		//if(err) { throw err }
+		//	fs.writeFile("/usr/share/fmservermanager/db/unifipass", unifipass, function(err) {
+		//	if(err) { throw err }
+		//	$(loadingmodal).modal('hide');
+		//	});
+		//});
+		exec(cmd);
+		$(loadingmodal).modal('hide');
+	});
 	
 	//Legacy Launcher for hard coded items
 	$('.applauncher').click(function(){
@@ -156,11 +179,14 @@ var ifaces = os.networkInterfaces();
 
 	//Initial Run Through
 	$(document).ready(function(){
-		createroles(); 
-		updateroles(); 
+		updateroles();
+		populatefields();
+		populatebackups();
 	});
 	
 	//Update Every 5 Seconds
-	window.setInterval(function(){ updateroles(); updateloadingstatus(); }, 3000);
+	window.setInterval(function(){ 
+		//Nothing 
+	}, 5000);
 	
 //});
