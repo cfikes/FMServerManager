@@ -30,13 +30,22 @@
 		"launch" : "xdg-open https://localhost:6443"
 	},
 	{
+		"title" : "PacketFence",
+		"desc" : "Web based server manager for remote easy management.",
+		"img" : "webminlogo.png",
+		"uuid" : "packetfence",
+		"icmd" : "installpacketfence",
+		"pcmd" : "purgepacketfence",
+		"launch" : "xdg-open https://localhost:1443"
+	},
+	{
 		"title" : "Webmin",
 		"desc" : "Web based server manager for remote easy management.",
 		"img" : "webminlogo.png",
 		"uuid" : "webmin",
 		"icmd" : "installwebmin",
 		"pcmd" : "purgewebmin",
-		"launch" : "firefox https://localhost:10000"
+		"launch" : "xdg-open https://localhost:10000"
 	}
 
 ]
